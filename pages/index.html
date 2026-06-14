@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Reverie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+
+        <div class="hero-fog"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content">
+
+            <span class="eyebrow">Una colección de relatos</span>
+
+            <h1>Crimson<br>Reverie</h1>
+
+            <p class="subtitle">
+                Where beautiful thoughts learn how to bleed.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="description">
+                Una colección de historias sobre obsesión, pérdida,
+                deseo, paranoia y los rincones más oscuros de la mente.
+            </p>
+
+            <a href="#books" class="hero-cta">
+                Entrar a la colección
+                <span class="hero-cta-arrow">↓</span>
+            </a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="about">
+
+            <h2>Sobre esta colección</h2>
+
+            <p>
+                Algunas historias nacen del miedo.
+                Otras nacen del amor cuando permanece demasiado tiempo.
+                Esta colección reúne relatos de horror psicológico
+                donde la realidad comienza a deformarse lentamente.
+            </p>
+
+        </section>
+
+        <section class="books" id="books">
+
+            <h2 class="books-title">Los relatos</h2>
+
+            <!-- LIBRO 1 -->
+            <article class="book-card">
+
+                <span class="adult-badge">+18</span>
+
+                <div class="book-cover">
+                    <img src="../img/libro1.jpg" alt="Portada de Blackbox">
+                </div>
+
+                <div class="book-info">
+
+                    <span class="book-genre">Horror psicológico</span>
+                    <h3>Blackbox</h3>
+
+                    <p>
+                        Una historia de horror psicológico, obsesión y paranoia
+                        que explora los rincones más oscuros de la mente.
+                    </p>
+
+                    <a href="./libro1.html" class="btn-leer" id="libro18">
+                        Leer historia
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- LIBRO 2 -->
+            <article class="book-card">
+
+                <div class="book-cover">
+                    <img src="../img/libro2.jpg" alt="Portada Libro 2">
+                </div>
+
+                <div class="book-info">
+
+                    <span class="book-genre">Próximamente</span>
+                    <h3>Libro 2</h3>
+
+                    <p>
+                        Descripción breve del segundo libro.
+                    </p>
+
+                    <a href="./libro2.html" class="btn-leer">
+                        Leer historia
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- LIBRO 3 -->
+            <article class="book-card">
+
+                <div class="book-cover">
+                    <img src="../img/libro3.jpg" alt="Portada Libro 3">
+                </div>
+
+                <div class="book-info">
+
+                    <span class="book-genre">Próximamente</span>
+                    <h3>Libro 3</h3>
+
+                    <p>
+                        Descripción breve del tercer libro.
+                    </p>
+
+                    <a href="./libro3.html" class="btn-leer">
+                        Leer historia
+                    </a>
+
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- MODAL +18 -->
+        <div id="adultModal" class="modal">
+
+            <div class="modal-content">
+
+                <h2>⚠ Contenido para adultos</h2>
+
+                <p>
+                    Esta obra contiene temas de horror psicológico,
+                    violencia, manipulación emocional y situaciones
+                    que pueden resultar perturbadoras.
+
+                    <br><br>
+
+                    Este contenido está destinado exclusivamente
+                    para personas mayores de 18 años.
+
+                    <br><br>
+
+                    ¿Confirmas que eres mayor de edad?
+                </p>
+
+                <div class="modal-buttons">
+
+                    <button id="btnSi">
+                        Sí, soy mayor de edad
+                    </button>
+
+                    <button id="btnNo">
+                        No
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>
+            "Monsters are often born from loneliness."
+        </p>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

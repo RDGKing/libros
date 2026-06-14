@@ -1,0 +1,289 @@
+/* ========================= */
+/* VARIABLES                 */
+/* ========================= */
+
+:root {
+    --color-primary:     #8f1d37;
+    --color-primary-h:   #b72b4a;
+    --color-accent:      #d6a0aa;
+    --color-accent-dim:  #9f7d84;
+    --color-text:        #f4e9ea;
+    --color-text-muted:  #d8c8cb;
+    --color-border:      #45111d;
+    --color-border-mid:  #5a1625;
+    --color-surface:     rgba(20,0,5,.55);
+    --color-surface-d:   rgba(10,0,3,.6);
+    --radius-card:       20px;
+    --radius-btn:        8px;
+}
+
+/* ========================= */
+/* RESET & BASE              */
+/* ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at top,
+            #3a000c 0%,
+            #120204 40%,
+            #050505 100%
+        );
+    color: var(--color-text);
+    font-family: Georgia, serif;
+    min-height: 100vh;
+}
+
+/* ========================= */
+/* ANIMACION ENTRADA         */
+/* ========================= */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.portada,
+h1,
+.frase,
+.info,
+.sinopsis,
+.pdf-section {
+    animation: fadeUp .55s ease both;
+}
+
+h1          { animation-delay: .05s; }
+.frase      { animation-delay: .10s; }
+.info       { animation-delay: .15s; }
+.sinopsis   { animation-delay: .20s; }
+.pdf-section{ animation-delay: .25s; }
+
+/* ========================= */
+/* LAYOUT                    */
+/* ========================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 25px 80px;
+}
+
+/* ========================= */
+/* VOLVER                    */
+/* ========================= */
+
+.volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--color-accent);
+    margin-bottom: 40px;
+    font-size: .95rem;
+    letter-spacing: .02em;
+    transition: color .3s, gap .2s;
+}
+
+.volver:hover {
+    color: #ffffff;
+    gap: 10px;
+}
+
+/* ========================= */
+/* PORTADA                   */
+/* ========================= */
+
+.portada {
+    display: block;
+    width: 320px;
+    max-width: 100%;
+    margin: 0 auto 35px;
+    border-radius: 18px;
+    box-shadow:
+        0 0 40px rgba(184,67,95,.25),
+        0 8px 32px rgba(0,0,0,.5);
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: default;
+}
+
+.portada:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow:
+        0 0 60px rgba(184,67,95,.4),
+        0 16px 48px rgba(0,0,0,.6);
+}
+
+/* ========================= */
+/* TITULO & FRASE            */
+/* ========================= */
+
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: normal;
+    margin-bottom: 15px;
+    color: var(--color-text);
+    text-shadow: 0 2px 20px rgba(184,67,95,.3);
+}
+
+.frase {
+    text-align: center;
+    color: var(--color-accent);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    opacity: .85;
+}
+
+/* ========================= */
+/* INFO CARDS                */
+/* ========================= */
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.info div {
+    background: rgba(40,0,10,.5);
+    border: 1px solid var(--color-border-mid);
+    padding: 20px 24px;
+    min-width: 180px;
+    border-radius: 15px;
+    text-align: center;
+    transition: border-color .3s, background .3s, transform .25s;
+    cursor: default;
+}
+
+.info div:hover {
+    background: rgba(60,0,15,.65);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.info strong {
+    display: block;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    font-size: .82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.info span {
+    color: var(--color-accent);
+    font-size: 1rem;
+}
+
+/* ========================= */
+/* SINOPSIS                  */
+/* ========================= */
+
+.sinopsis {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-card);
+    padding: 35px;
+    margin-bottom: 50px;
+}
+
+.sinopsis h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: var(--color-text);
+    font-size: 1.3rem;
+    letter-spacing: .04em;
+}
+
+.sinopsis p {
+    color: var(--color-text-muted);
+    line-height: 1.9;
+}
+
+/* ========================= */
+/* PDF SECTION & IFRAME      */
+/* ========================= */
+
+.pdf-section {
+    margin-top: 40px;
+}
+
+.visor-iframe {
+    width: 100%;
+    height: 85vh;
+    border: none;
+    border-radius: var(--radius-card);
+    display: block;
+    box-shadow:
+        0 0 30px rgba(0,0,0,.5),
+        inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-accent-dim);
+    font-style: italic;
+}
+
+/* ========================= */
+/* RESPONSIVE — TABLET       */
+/* ========================= */
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.4rem; }
+    
+    .portada { width: 250px; }
+    
+    .info { gap: 16px; }
+    
+    .info div {
+        min-width: 140px;
+        padding: 16px;
+    }
+    
+    .sinopsis { padding: 24px; }
+}
+
+/* ========================= */
+/* RESPONSIVE — MOVIL        */
+/* ========================= */
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.9rem; }
+    
+    .portada { width: 200px; }
+    
+    .frase { font-size: 1rem; }
+    
+    .info { gap: 12px; }
+    
+    .info div {
+        min-width: 120px;
+        padding: 14px 12px;
+    }
+    
+    .sinopsis {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .visor-iframe {
+        height: 75vh;
+        border-radius: 10px;
+    }
+}

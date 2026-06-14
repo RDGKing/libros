@@ -1,0 +1,119 @@
+/* ============================================ */
+/* TEMA PERSONALIZADO PARA EL VISOR PDF.js      */
+/* Combina con la paleta de lector.css          */
+/* ============================================ */
+
+:root {
+    --main-color: #f4e9ea;
+    --body-bg-color: #050505;
+    --toolbar-bg-color: #1a0408;
+    --toolbar-border-color: #5a1625;
+    --field-bg-color: #2a0810;
+    --field-border-color: #5a1625;
+    --doorhanger-bg-color: #1a0408;
+    --doorhanger-border-color: #5a1625;
+    --doorhanger-hover-color: rgba(184, 67, 95, .25);
+}
+
+/* Fondo general del visor */
+#outerContainer,
+#mainContainer,
+#viewerContainer {
+    background-color: #050505;
+}
+
+/* Barra de herramientas superior */
+#toolbarContainer,
+.toolbar {
+    background: linear-gradient(180deg, #3a000c, #1a0408);
+    border-bottom: 1px solid #5a1625;
+}
+
+#toolbarViewer,
+#toolbarViewerLeft,
+#toolbarViewerMiddle,
+#toolbarViewerRight {
+    color: #f4e9ea;
+}
+
+/* Botones de la barra */
+.toolbarButton,
+.secondaryToolbarButton {
+    color: #d6a0aa;
+    border-radius: 8px;
+}
+
+.toolbarButton:hover,
+.secondaryToolbarButton:hover {
+    background-color: rgba(184, 67, 95, .25);
+}
+
+.toolbarButton.toggled,
+.secondaryToolbarButton.toggled {
+    background-color: rgba(184, 67, 95, .35);
+}
+
+/* Campo de número de página */
+#pageNumber {
+    background-color: #2a0810;
+    color: #f4e9ea;
+    border: 1px solid #5a1625;
+    border-radius: 6px;
+}
+
+/* Menú secundario desplegable */
+#secondaryToolbar,
+.secondaryToolbar {
+    background-color: #1a0408;
+    border: 1px solid #5a1625;
+    box-shadow: 0 8px 32px rgba(0,0,0,.6);
+}
+
+.secondaryToolbarButton:hover {
+    background-color: rgba(184, 67, 95, .2);
+}
+
+/* Páginas del documento */
+.page {
+    border: 1px solid #45111d;
+    box-shadow: 0 0 25px rgba(184, 67, 95, .25), 0 8px 24px rgba(0,0,0,.5);
+    border-radius: 4px;
+}
+
+/* Sombra/espacio entre páginas */
+.pdfViewer {
+    background-color: #050505;
+}
+
+/* Buscador */
+#findbar {
+    background-color: #1a0408;
+    border: 1px solid #5a1625;
+    box-shadow: 0 8px 32px rgba(0,0,0,.6);
+    color: #f4e9ea;
+}
+
+#findInput {
+    background-color: #2a0810;
+    color: #f4e9ea;
+    border: 1px solid #5a1625;
+    border-radius: 6px;
+}
+
+/* Scrollbar estilizado (Chrome/Edge) */
+#viewerContainer::-webkit-scrollbar {
+    width: 10px;
+}
+
+#viewerContainer::-webkit-scrollbar-track {
+    background: #120204;
+}
+
+#viewerContainer::-webkit-scrollbar-thumb {
+    background: #8f1d37;
+    border-radius: 10px;
+}
+
+#viewerContainer::-webkit-scrollbar-thumb:hover {
+    background: #b72b4a;
+}

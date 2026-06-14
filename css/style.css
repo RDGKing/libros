@@ -1,0 +1,493 @@
+/* ========================= */
+/* VARIABLES                 */
+/* ========================= */
+
+:root {
+    --color-bg:          #050505;
+    --color-bg-deep:     #0a0102;
+    --color-crimson:     #8b1e35;
+    --color-crimson-h:   #b8435f;
+    --color-accent:      #d6a0aa;
+    --color-text:        #f4e9ea;
+    --color-text-muted:  #c4b5b8;
+    --color-border:      #45111d;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'EB Garamond', Georgia, serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+}
+
+/* ========================= */
+/* HERO                      */
+/* ========================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 30%, rgba(139, 30, 53, .22), transparent 60%),
+        radial-gradient(circle at top, #2a000a, #100204, #050505);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Niebla ambiental sutil */
+.hero-fog {
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(139, 30, 53, .12), transparent 45%),
+        radial-gradient(circle at 80% 20%, rgba(139, 30, 53, .10), transparent 40%);
+    filter: blur(40px);
+    animation: fogDrift 30s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes fogDrift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(3%, -4%) scale(1.08); }
+}
+
+/* Viñeta para enfocar el centro */
+.hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.75) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: heroIn 1s ease both;
+}
+
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: .85rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    opacity: .7;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 6.5rem;
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: .08em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(139, 30, 53, .5);
+}
+
+.subtitle {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-crimson-h), transparent);
+    margin: 35px auto;
+}
+
+.description {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 60px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .8;
+    transition: opacity .3s, letter-spacing .3s;
+}
+
+.hero-cta:hover {
+    opacity: 1;
+    letter-spacing: .15em;
+}
+
+.hero-cta-arrow {
+    font-size: 1.2rem;
+    animation: arrowBob 2s ease-in-out infinite;
+}
+
+@keyframes arrowBob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+}
+
+/* ========================= */
+/* ABOUT                     */
+/* ========================= */
+
+.about {
+    max-width: 760px;
+    margin: auto;
+    padding: 110px 30px;
+    text-align: center;
+}
+
+.about h2 {
+    font-family: var(--font-display);
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+}
+
+.about p {
+    color: var(--color-text-muted);
+}
+
+/* ========================= */
+/* LIBROS                    */
+/* ========================= */
+
+.books {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 25px 120px;
+}
+
+.books-title {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    margin-bottom: 60px;
+}
+
+.book-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    background:
+        linear-gradient(135deg, rgba(139, 30, 53, .08), transparent 60%),
+        rgba(30, 0, 8, .5);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+
+    overflow: hidden;
+    margin-bottom: 35px;
+
+    padding: 30px;
+
+    transition: border-color .35s, box-shadow .35s, transform .35s;
+}
+
+.book-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background:
+        linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+        linear-gradient(135deg, var(--color-crimson-h), transparent 50%) border-box;
+    opacity: 0;
+    transition: opacity .35s;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    border-color: transparent;
+    box-shadow: 0 12px 40px rgba(139, 30, 53, .25);
+}
+
+.book-card:hover::before {
+    opacity: 1;
+}
+
+.book-cover {
+    position: relative;
+    flex-shrink: 0;
+    width: 240px;
+    height: 340px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+.book-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.7));
+    pointer-events: none;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(.9);
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.book-card:hover .book-cover img {
+    transform: scale(1.06);
+    filter: saturate(1.05);
+}
+
+.book-info {
+    position: relative;
+    z-index: 1;
+}
+
+.book-genre {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: .8rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    opacity: .75;
+    margin-bottom: 10px;
+}
+
+.book-card h3 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.book-card p {
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
+    max-width: 600px;
+}
+
+.btn-leer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid var(--color-crimson);
+
+    padding: 11px 26px;
+    border-radius: 2px;
+
+    font-family: var(--font-display);
+    font-style: italic;
+    letter-spacing: .05em;
+
+    transition: background .3s, border-color .3s, color .3s;
+}
+
+.btn-leer:hover {
+    background: var(--color-crimson);
+    border-color: var(--color-crimson-h);
+}
+
+/* BADGE +18 */
+
+.adult-badge {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    background: var(--color-crimson);
+    color: var(--color-text);
+
+    padding: 6px 14px;
+
+    border-radius: 2px;
+
+    font-family: var(--font-body); /* en vez de heredar Cormorant */
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+
+    z-index: 10;
+}
+
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid #2a1015;
+    color: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-style: italic;
+    opacity: .7;
+}
+
+/* ========================= */
+/* MODAL                      */
+/* ========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(4px);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.modal-content {
+    background: var(--color-bg-deep);
+
+    border: 1px solid var(--color-crimson);
+    border-radius: 4px;
+
+    padding: 45px;
+
+    width: 90%;
+    max-width: 500px;
+
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-family: var(--font-display);
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.modal-content p {
+    color: var(--color-text-muted);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.modal-buttons button {
+    border: 1px solid var(--color-crimson);
+    cursor: pointer;
+    background: transparent;
+    color: var(--color-text);
+
+    padding: 11px 26px;
+
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-style: italic;
+    letter-spacing: .05em;
+
+    transition: background .3s, border-color .3s;
+}
+
+.modal-buttons button:hover {
+    background: var(--color-crimson);
+    border-color: var(--color-crimson-h);
+}
+
+/* ========================= */
+/* RESPONSIVE                */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+    }
+
+    .book-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .book-cover {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        aspect-ratio: 2 / 3;
+    }
+
+    .book-card p {
+        max-width: 100%;
+    }
+
+    .books-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-fog,
+    .hero-cta-arrow,
+    .hero-content {
+        animation: none;
+    }
+}
