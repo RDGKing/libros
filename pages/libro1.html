@@ -16,39 +16,171 @@
             ← Volver a la colección
         </a>
 
-        <img src="../img/libro1.jpg" alt="Portada Blackbox" class="portada">
+        <!-- ── LIBRO ─────────────────────────────────── -->
+        <section class="libro">
 
-        <h1>Titulo</h1>
+            <img src="../img/libro1.jpg" alt="Portada" class="portada">
 
-        <p class="frase">
-            "Algunas heridas aprenden a hablar."
-        </p>
+            <h1>Titulo</h1>
 
-        <div class="info">
-            <div>
-                <strong>Género</strong>
-                <span>Horror Psicológico</span>
+            <p class="frase">
+                "Algunas heridas aprenden a hablar."
+            </p>
+
+            <div class="info">
+                <div>
+                    <strong>Género</strong>
+                    <span>Horror Psicológico</span>
+                </div>
+                <div>
+                    <strong>Clasificación</strong>
+                    <span>+18</span>
+                </div>
             </div>
-            <div>
-                <strong>Clasificación</strong>
-                <span>+18</span>
+
+            <div class="sinopsis">
+                <h2>Sinopsis</h2>
+                <p>
+                    Aquí escribirás la sinopsis de tu libro.
+                    Puede ser una descripción breve sin revelar demasiado.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ── PERSONAJES ───────────────────────────── -->
+        <section class="personajes">
+            <h2>Personajes</h2>
+            <p class="personajes-hint">Toca una carta para conocerlos</p>
+
+            <div class="personajes-grid">
+
+                <div class="pj-card" onclick="abrirModal(0)">
+                    <img src="../img/personaje1.png" alt="Ethan Morse" class="pj-foto">
+                    <div class="pj-overlay"></div>
+                    <div class="pj-info">
+                        <p class="pj-nombre">Ethan Morse</p>
+                        <p class="pj-rol">Protagonista</p>
+                    </div>
+                </div>
+
+                <div class="pj-card" onclick="abrirModal(1)">
+                    <img src="../img/personaje2.png" alt="Dorian Cassel" class="pj-foto">
+                    <div class="pj-overlay"></div>
+                    <div class="pj-info">
+                        <p class="pj-nombre">Dorian Cassel</p>
+                        <p class="pj-rol">Antagonista</p>
+                    </div>
+                </div>
+
+                <div class="pj-card" onclick="abrirModal(2)">
+                    <img src="../img/personaje3.png" alt="Iris Vael" class="pj-foto">
+                    <div class="pj-overlay"></div>
+                    <div class="pj-info">
+                        <p class="pj-nombre">Iris Vael</p>
+                        <p class="pj-rol">Secundaria</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── MODAL ─────────────────────────────────── -->
+        <div class="modal-overlay" id="modal-overlay" onclick="cerrarModal()">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+                <img src="" alt="" class="modal-foto" id="modal-foto">
+                <div class="modal-contenido">
+                    <p class="modal-rol" id="modal-rol"></p>
+                    <h3 class="modal-nombre" id="modal-nombre"></h3>
+                    <div class="modal-datos" id="modal-datos"></div>
+                    <p class="modal-cita" id="modal-cita"></p>
+                </div>
             </div>
         </div>
 
-        <section class="sinopsis">
-            <h2>Sinopsis</h2>
-            <p>
-                Aquí escribirás la sinopsis de tu libro.
-                Puede ser una descripción breve sin revelar demasiado.
-            </p>
-        </section>
-
+        <!-- ── LECTOR ────────────────────────────────── -->
         <section class="pdf-section">
+            <div class="lector-header">
+                <div class="lector-linea"></div>
+                <div class="lector-centro">
+                    <span class="lector-icono">✦</span>
+                    <h2 class="lector-titulo">Comienza la lectura</h2>
+                    <span class="lector-icono">✦</span>
+                </div>
+            </div>
             <iframe src="../pdfjs/web/viewer.html?file=../../libros/libro1.pdf" class="visor-iframe"
                 title="Lector"></iframe>
         </section>
 
     </div>
+
+    <script>
+        const personajes = [
+            {
+                nombre: "Ethan Morse",
+                rol: "Protagonista",
+                foto: "../img/personaje1.png",
+                datos: [
+                    { etiqueta: "Edad",   valor: "29 años" },
+                    { etiqueta: "Rasgos", valor: "Introvertido · Analítico · Frágil" },
+                    { etiqueta: "Origen", valor: "Ciudad costera del sur" }
+                ],
+                cita: "\"Cargó el secreto tanto tiempo que ya no sabía dónde terminaba él y comenzaba el miedo.\""
+            },
+            {
+                nombre: "Dorian Cassel",
+                rol: "Antagonista",
+                foto: "../img/personaje2.png",
+                datos: [
+                    { etiqueta: "Edad",   valor: "38 años" },
+                    { etiqueta: "Rasgos", valor: "Calculador · Persuasivo · Frío" },
+                    { etiqueta: "Origen", valor: "Desconocido" }
+                ],
+                cita: "\"Su sonrisa era la última cosa que veías antes de que todo empezara a desmoronarse.\""
+            },
+            {
+                nombre: "Iris Vael",
+                rol: "Secundaria",
+                foto: "../img/personaje3.png",
+                datos: [
+                    { etiqueta: "Edad",   valor: "31 años" },
+                    { etiqueta: "Rasgos", valor: "Leal · Protectora · Reservada" },
+                    { etiqueta: "Origen", valor: "Las afueras del norte" }
+                ],
+                cita: "\"Era la única que seguía ahí cuando las luces se apagaban.\""
+            }
+        ];
+
+        function abrirModal(i) {
+            const p = personajes[i];
+            document.getElementById("modal-foto").src              = p.foto;
+            document.getElementById("modal-foto").alt              = p.nombre;
+            document.getElementById("modal-nombre").textContent    = p.nombre;
+            document.getElementById("modal-rol").textContent       = p.rol;
+            document.getElementById("modal-cita").textContent      = p.cita;
+
+            const datos = document.getElementById("modal-datos");
+            datos.innerHTML = p.datos.map(d =>
+                `<div class="modal-dato">
+                    <span class="modal-etiqueta">${d.etiqueta}</span>
+                    <span class="modal-valor">${d.valor}</span>
+                </div>`
+            ).join("");
+
+            document.getElementById("modal-overlay").classList.add("activo");
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal-overlay").classList.remove("activo");
+            document.body.style.overflow = "";
+        }
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") cerrarModal();
+        });
+    </script>
 
 </body>
 
